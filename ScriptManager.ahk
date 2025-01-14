@@ -1,8 +1,8 @@
 #Requires AutoHotkey v2.0.18
 #SingleInstance Force
 Persistent
-#Include %A_ScriptDir%\Logger.ahk
-#Include %A_ScriptDir%\DotEnv.ahk
+#Include utils\Logger.ahk
+#Include utils\DotEnv.ahk
 
 ; Add script to Windows Registry startup using short paths to handle spaces
 try {
@@ -38,17 +38,17 @@ class ScriptManager {
         CheckInterval: 5000,
         Scripts: [
             {
-                ScriptPath: A_ScriptDir "\MatchAcceptor.ahk",
+                ScriptPath: A_ScriptDir "\scripts\MatchAcceptor.ahk",
                 WindowTitle: "ahk_class RCLIENT ahk_exe LeagueClientUx.exe",
                 ScriptType: "Regular",
             },
             {
-                ScriptPath: A_ScriptDir "\LoadingScreenTimer.ahk",
+                ScriptPath: A_ScriptDir "\scripts\LoadingScreenTimer.ahk",
                 WindowTitle: "ahk_class RiotWindowClass ahk_exe League of Legends.exe",
                 ScriptType: "One-Time",
             },
             {
-                ScriptPath: A_ScriptDir "\VDEExiter.ahk",
+                ScriptPath: A_ScriptDir "\scripts\VDEExiter.ahk",
                 WindowTitle: DotEnv.Get("VDE_WINDOW_TITLE"),
                 ScriptType: "Regular",
             }

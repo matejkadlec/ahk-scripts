@@ -1,8 +1,8 @@
 ﻿#Requires AutoHotkey v2.0.18
 #SingleInstance Force
 Persistent
-#Include %A_ScriptDir%\Logger.ahk
-#Include %A_ScriptDir%\DotEnv.ahk
+#Include ..\utils\Logger.ahk
+#Include ..\utils\DotEnv.ahk
 
 DotEnv.Load()
 

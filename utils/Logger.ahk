@@ -1,19 +1,28 @@
 #Requires AutoHotkey v2.0.18
 
 class Logger {
-    static LOGS_DIR := A_ScriptDir "\logs"
+    static LOGS_DIR := ""
     static logFile := ""
     static MAX_SIZE := 1024 * 1024  ; 1 MB in bytes
     static AGE_LIMIT := 3  ; Delete files older than 3 days
 
     static Init() {
+        ; Make sure the correct logs directory is used
+        if InStr(A_ScriptDir, "\scripts")
+            Logger.LOGS_DIR := A_ScriptDir "\..\logs"
+        else 
+            Logger.LOGS_DIR := A_ScriptDir "\logs"
+        
+
         ; Create log directory if it doesn't exist
         if !FileExist(Logger.LOGS_DIR)
             DirCreate(Logger.LOGS_DIR)
+        
         ; Create log file if it doesn't exist
         Logger.logFile := Format("{1}\{2}.log", Logger.LOGS_DIR, FormatTime(, "dd-MM-yyyy"))
         if !FileExist(Logger.logFile)
             FileAppend("", Logger.logFile)
+            
         ; Cleanup old log files; -1 means no age limit
         if Logger.AGE_LIMIT != -1
             Logger.CleanupOldLogs()

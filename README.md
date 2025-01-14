@@ -54,7 +54,7 @@ The `DotEnv.ahk` module manages environment variables:
   ```
 - Example usage:
   ```ahk
-  #Include %A_ScriptDir%\DotEnv.ahk
+  #Include ..\utils\DotEnv.ahk
 
   DotEnv().load()
   DotEnv.Get("VDE_WINDOW_TITLE")

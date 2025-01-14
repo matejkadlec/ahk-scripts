@@ -1,12 +1,12 @@
 ﻿#Requires AutoHotkey v2.0.18
 #SingleInstance Force
 Persistent
-#Include %A_ScriptDir%\Logger.ahk
+#Include ..\utils\Logger.ahk
 
 class MatchAcceptor {
     static CONFIG := {
         WindowTitle: "ahk_class RCLIENT ahk_exe LeagueClientUx.exe",
-        AcceptButtonImage: A_ScriptDir "\img\AcceptButton.png",
+        AcceptButtonImage: A_ScriptDir "\..\img\AcceptButton.png",
         ClientWidth: 1280,
         ClientHeight: 720,
         SearchInterval: 500,

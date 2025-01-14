@@ -1,11 +1,11 @@
 #Requires AutoHotkey v2.0.18
-#Include %A_ScriptDir%\Logger.ahk
+#Include Logger.ahk
 
 class DotEnv {
     static vars := Map()
 
     static Load() {
-        envPath := A_ScriptDir "\.env"
+        envPath := A_ScriptDir "\..\.env"
 
         ; Check if the .env file exists
         if !FileExist(envPath) {

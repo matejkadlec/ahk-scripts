@@ -1,11 +1,11 @@
 #Requires AutoHotkey v2.0.18
 #SingleInstance Force
 Persistent
-#Include %A_ScriptDir%\Logger.ahk
+#Include ..\utils\Logger.ahk
 
 class LoadingScreenTimer {
     static TIMEOUT_MS := 600000  ; 10 minutes
-    static CSV_FILE := A_ScriptDir "\data\measurements.csv"
+    static CSV_FILE := A_ScriptDir "\..\data\measurements.csv"
 
     __New() {
         this.startTime := A_TickCount
@@ -24,8 +24,8 @@ class LoadingScreenTimer {
 
     _InitCsv() {
         ; Create the data directory and the CSV file if they don't exist
-        if !DirExist(A_ScriptDir "\data")
-            DirCreate(A_ScriptDir "\data")
+        if !DirExist(A_ScriptDir "\..\data")
+            DirCreate(A_ScriptDir "\..\data")
         if !FileExist(LoadingScreenTimer.CSV_FILE)  ; Use static property correctly
             FileAppend("ID,Date,Time,Duration`n", LoadingScreenTimer.CSV_FILE)
     }

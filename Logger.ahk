@@ -14,8 +14,9 @@ class Logger {
         Logger.logFile := Format("{1}\{2}.log", Logger.LOGS_DIR, FormatTime(, "dd-MM-yyyy"))
         if !FileExist(Logger.logFile)
             FileAppend("", Logger.logFile)
-        ; Cleanup old log files
-        Logger.CleanupOldLogs()
+        ; Cleanup old log files; -1 means no age limit
+        if Logger.AGE_LIMIT != -1
+            Logger.CleanupOldLogs()
     }
     
     static CheckSize() {

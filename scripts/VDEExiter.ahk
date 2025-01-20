@@ -11,16 +11,23 @@ class VDEExiter {
         OpenMenuButton: { x: Round(A_ScreenWidth * (940/1920)), y: 5 },
         ExitButton: { x: Round(A_ScreenWidth * (690/1920)), y: 25 },
         WindowTitle: DotEnv.Get("VDE_WINDOW_TITLE"),
-        Delay: 500
+        Delay: 500,
     }
     
     ExitSequence(*) {
-        ; Check if the Virtual Desktop window is active
-        if !WinActive(VDEExiter.CONFIG.WindowTitle)
-            return
-            
         BlockInput(true)
         try {
+            ; Check if the Virtual Desktop window is active
+            if !WinActive(VDEExiter.CONFIG.WindowTitle) {
+                ; Pass through F1 if not in VDE window
+                BlockInput(false)
+                Hotkey("F1", "Off")  ; Temporarily disable hotkey
+                Sleep(50)  ; Small delay before sending key
+                SendInput("{F1}")
+                SetTimer(() => Hotkey("F1", "On"), -100)  ; Re-enable hjokey after 100ms
+                return
+            }
+            
             Logger.Log("VDEExiter", "`"F1`" hotkey press recorded; exiting Virtual Desktop")
             ; Open the Virtual Desktop menu
             MouseMove(VDEExiter.CONFIG.OpenMenuButton.x, VDEExiter.CONFIG.OpenMenuButton.y, 0)

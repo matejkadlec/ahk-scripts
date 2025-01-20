@@ -5,7 +5,11 @@ class DotEnv {
     static vars := Map()
 
     static Load() {
-        envPath := A_ScriptDir "\..\.env"
+        ; Make sure the correct .env file path is used
+        if InStr(A_ScriptDir, "\scripts") || InStr(A_ScriptDir, "\utils")
+            envPath := A_ScriptDir "\..\.env"
+        else 
+            envPath := A_ScriptDir "\.env"
 
         ; Check if the .env file exists
         if !FileExist(envPath) {

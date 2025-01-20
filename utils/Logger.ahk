@@ -8,7 +8,7 @@ class Logger {
 
     static Init() {
         ; Make sure the correct logs directory is used
-        if InStr(A_ScriptDir, "\scripts")
+        if InStr(A_ScriptDir, "\scripts") || InStr(A_ScriptDir, "\utils")
             Logger.LOGS_DIR := A_ScriptDir "\..\logs"
         else 
             Logger.LOGS_DIR := A_ScriptDir "\logs"

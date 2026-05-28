@@ -5,7 +5,7 @@ SendMode "Event"  ; Event mode is often more reliable in games than Input mode.
 
 autoAttackEnabled := false
 isSpamming := false
-spamIntervalMs := 50
+spamIntervalMs := 10
 rHotkeyPaused := false
 pauseToggleCooldownMs := 300
 lastPauseToggleTick := 0

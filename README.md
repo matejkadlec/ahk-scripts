@@ -2,7 +2,7 @@
 
 [![AHK Version](https://img.shields.io/badge/AHK-v2.0.18-blue.svg)](https://www.autohotkey.com/)
 [![Windows](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
-[![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Standalone Windows automation scripts built with AutoHotkey v2.
 

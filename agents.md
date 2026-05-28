@@ -4,6 +4,7 @@
   modules, or a central script manager.
 - Use AutoHotkey v2 syntax and keep editable configuration constants near the
   top of each script.
+- Put AutoHotkey scripts in `scripts/` by default.
 - Prefer clear `ahk_exe` and `ahk_class` window selectors over brittle full
   window titles.
 - Use `SetTimer` for repeated work instead of blocking infinite loops.

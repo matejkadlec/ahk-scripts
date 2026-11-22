@@ -63,6 +63,20 @@ Provides a quick exit action for a Virtual Desktop Environment window.
 - Edit constants at the top of `scripts/VDEExiter.ahk` to configure the target
   window title, monitor offset, click coordinates, and click delay.
 
+### AutoScroller
+
+Simulates nonstop mouse wheel scrolling, back and forth by default.
+
+- `Numpad+` toggles scrolling while the script is ON.
+- `F12` turns the script ON / OFF. While OFF, scrolling stops and `Numpad+`
+  types `+` normally until `F12` is pressed again.
+- Scrolls a set number of wheel notches down, the same number back up, and
+  repeats.
+- Configure `SCROLL_INTERVAL_MS`, `SCROLL_STEPS_PER_DIRECTION`, `SCROLL_MODE`
+  (`Both`, `Down`, `Up`), `START_DIRECTION`, `TOGGLE_HOTKEY`, `SCRIPT_HOTKEY`
+  and `START_SCRIPT_ON` near the top of `scripts/AutoScroller.ahk`.
+- Exit the script from its tray icon.
+
 ## Logging And Data
 
 Scripts that log write to `logs/dd-mm-yyyy.log`. Generated logs and timer data
